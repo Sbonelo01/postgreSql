@@ -23,18 +23,6 @@ Email           VARCHAR(100),
 Job_Title       VARCHAR(20)
 );
 
-
---order information 
-CREATE TABLE Orders(
-ORDER_ID 			SERIAL primary key,
-Product_ID          INTEGER     REFERENCES Products(Product_ID)
-Payment_ID          INTEGER     REFERENCES Payments(Payment_ID)
-Employee_ID         INTEGER     REFERENCES emplyee(Employee_ID)
-Date_Required       TIMESTAMP,
-Date_Shipped        TIMESTAMP,
-Status				VARCHAR(20)
-);
-
 --payment information
 CREATE TABLE Payments(
 PAYMENTS_ID 	SERIAL Primary key,
@@ -50,6 +38,18 @@ Product_ID      INTEGER Primary Key,
 Product_Name    VARCHAR(100),
 Description     VARCHAR(300),
 Price           DECIMAL,
+);
+
+
+--order information 
+CREATE TABLE Orders(
+ORDER_ID 			SERIAL primary key,
+Product_ID          INTEGER     REFERENCES Products(Product_ID)
+Payment_ID          INTEGER     REFERENCES Payments(Payment_ID)
+Employee_ID         INTEGER     REFERENCES emplyee(Employee_ID)
+Date_Required       TIMESTAMP,
+Date_Shipped        TIMESTAMP,
+Status				VARCHAR(20)
 );
 
 --inserting records to tables
