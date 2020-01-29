@@ -11,7 +11,7 @@ SELECT First_Name FROM Customers WHERE Customer_ID=1;
 UPDATE Customers SET First_Name='Sbonelo Mkhize' WHERE Customer_ID=1;
 
 --Delete the record from the Customers table for customer 2 (CustomerID = 2).
-DELETE FROM Customers WHERE Customer_ID=105;
+DELETE FROM Customers WHERE Customer_ID=2;
 
 --Select all unique statuses from the Orders table and get a count of the number of orders for each unique status.
 SELECT COUNT(Status) FROM Orders;
@@ -33,7 +33,7 @@ AND country='Germany';
 --Select all fields from “Customers” where city is “Cape Town” OR “Durban”.
 select * from customers
 WHERE city='Cape Town'
-or city='durban';
+or city='Durban';
 
 --Select all records from Products where the Price is GREATER than R500.
 select * from products
@@ -43,7 +43,7 @@ WHERE price > '500';
 select SUM(amount) FROM payments;
 
 --Count the number of shipped orders in the Orders table.
-select count(*) from orders
+select count(ORDER_ID) from orders
 where status='Shipped';
 
 --Return the average price of all Products, in Rands and in Dollars (assume the exchange rate is R12 to the Dollar).
