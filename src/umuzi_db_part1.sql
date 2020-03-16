@@ -91,8 +91,8 @@ INSERT INTO Orders(
 Product_ID,Payment_ID,Employee_ID,Date_Required,Date_Shipped,Status
 )
 
-VALUES('1','1','2','05-09-2018',' ','Not shipped'),
+VALUES('1','1','2','05-09-2018',DEFAULT,'Not shipped'),
 ('1','2','2','04-09-2018','03-09-2018','Shipped'),
-('3','3','3','06-09-2018',' ','Not shipped');
+('3','3','3','06-09-2018',DEFAULT,'Not shipped');
 
 
