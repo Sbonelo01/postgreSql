@@ -1,5 +1,5 @@
 --create a database called umuzi
-CREATE DATABASE Umuzi;
+CREATE DATABASE IF NOT EXISTS Umuzi;
 
 --create a tables
 CREATE TABLE Customers(
@@ -39,31 +39,6 @@ VALUES('Kani','Matthew','mat@gmail.com','Manager'),
 ('Gideon','Maduku','m@gmail.com','Accountant');
 
 
-
---order information
-CREATE TABLE Orders(
-ORDER_ID            SERIAL PRIMARY KEY,
-Product_ID          INTEGER,
-Payment_ID          INTEGER,
-Employee_ID         INTEGER,
-Date_Required       DATE,
-Date_Shipped        DATE,
-Status              VARCHAR(20),
-FOREIGN KEY (Product_ID) REFERENCES Products (Product_ID),
-FOREIGN KEY (Payment_ID) REFERENCES Payments (Payment_ID),
-FOREIGN KEY (Employee_ID) REFERENCES Employees (Employee_ID)
-);
-
-
-
-INSERT INTO Orders(
-Product_ID,Payment_ID,Employee_ID,Date_Required,Date_Shipped,Status
-)
-
-VALUES('1','1','2','05-09-2018',' ','Not shipped'),
-('1','2','2','04-09-2018','03-09-2018','Shipped'),
-('3','3','3','06-09-2018',' ','Not shipped');
-
 --payment information
 CREATE TABLE Payments(
 CUSTOMER_ID 	INTEGER,
@@ -93,4 +68,31 @@ Product_Name,Description,Price
 )
 VALUES('Harley Davidson Chopper','This replica features working kickstand, front suspension, gear-shift lever','150.75'),
 ('Classic Car','Turnable front wheels, steering function','550.75'),
-('Sports car','Turnable front wheels, steering function','700.60')
+('Sports car','Turnable front wheels, steering function','700.60');
+
+
+--order information
+CREATE TABLE Orders(
+ORDER_ID            SERIAL PRIMARY KEY,
+Product_ID          INTEGER,
+Payment_ID          INTEGER,
+Employee_ID         INTEGER,
+Date_Required       DATE,
+Date_Shipped        DATE,
+Status              VARCHAR(20),
+FOREIGN KEY (Product_ID) REFERENCES Products (Product_ID),
+FOREIGN KEY (Payment_ID) REFERENCES Payments (Payment_ID),
+FOREIGN KEY (Employee_ID) REFERENCES Employees (Employee_ID)
+);
+
+
+
+INSERT INTO Orders(
+Product_ID,Payment_ID,Employee_ID,Date_Required,Date_Shipped,Status
+)
+
+VALUES('1','1','2','05-09-2018',' ','Not shipped'),
+('1','2','2','04-09-2018','03-09-2018','Shipped'),
+('3','3','3','06-09-2018',' ','Not shipped');
+
+
