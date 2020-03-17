@@ -1,5 +1,5 @@
 --1.Select all records from customer
-SELECT * FROM Customer;
+SELECT * FROM Customers;
 
 --2.Select records only from the name column in the Customers table.
 SELECT First_Name FROM Customers;
@@ -47,24 +47,24 @@ SELECT count(*) from orders
 where status='Shipped';
 
 --15.Return the average price of all Products, in Rands and in Dollars (assume the exchange rate is R12 to the Dollar).
-SELECT AVG(price) from products
+SELECT AVG(price) from products;
 
 --16.Using INNER JOIN create a query that selects all Payments with Customer information.
 SELECT
    customers.customer_ID,
-   First_Name,
-   Last_Name,
-   Email,
-   Amount,
-   Payment_Date,
-   Phone,
-   Country,
-   City,
-   Address
+   customers.First_Name,
+   customers.Last_Name,
+   customers.Email,
+   payments.Amount,
+   payments.Payment_Date,
+   customers.Phone,
+   customers.Country,
+   customers.City,
+   customers.Address
 FROM
    customers
 INNER JOIN payments ON customers.customer_ID  =  payments.customer_ID;
 
 --17.Select all products that have turnable front wheels.
 SELECT * FROM products 
-WHERE description LIKE 'Turnable front wheels%'
+WHERE description LIKE 'Turnable front wheels%';
