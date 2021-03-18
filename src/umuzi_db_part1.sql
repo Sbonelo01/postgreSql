@@ -8,7 +8,7 @@ first_name		VARCHAR(50),
 last_name		VARCHAR(50),
 Gender			VARCHAR,
 Address 		VARCHAR(200),
-Phone			INTEGER,
+Phone			VARCHAR(22),
 email			VARCHAR(100),
 City			VARCHAR(20),
 Country			VARCHAR(50)
