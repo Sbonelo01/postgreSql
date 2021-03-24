@@ -1,9 +1,9 @@
 --create a database called umuzi
-CREATE DATABASE Umuzi;
+CREATE DATABASE Umuziiii;
 
 --create a tables
 CREATE TABLE Customers(
-customer_id 	SERIAL  PRIMARY KEY,
+id 	SERIAL  PRIMARY KEY,
 first_name		VARCHAR(50),
 last_name		VARCHAR(50),
 Gender			VARCHAR,
@@ -24,7 +24,7 @@ VALUES('John','Hibert','Male','284 chaucer st','084789657','john@gmail.com','Joh
 
 --emplyee information
 CREATE TABLE Employees(
-employee_id SERIAL  PRIMARY KEY,
+id SERIAL  PRIMARY KEY,
 first_name      VARCHAR(50),
 last_name       VARCHAR(50),
 email           VARCHAR(100),
@@ -41,23 +41,23 @@ VALUES('Kani','Matthew','mat@gmail.com','Manager'),
 
 --payment information
 CREATE TABLE Payments(
-customer_id 	INTEGER,
-payment_id      SERIAL PRIMARY KEY,
+id      SERIAL PRIMARY KEY,
+Customers_id 	INTEGER,
 payment_date   	DATE,
 amount         	DECIMAL,
-FOREIGN KEY (customer_id) REFERENCES Customers (customer_id)
+FOREIGN KEY (Customers_id) REFERENCES Customers (id)
 );
 
 INSERT INTO Payments(
-customer_id,payment_id,payment_date,amount
+Customers_id,payment_date,amount
 )
-VALUES('1',DEFAULT,'01-09-2018','150.75'),
-('5',DEFAULT,'03-09-2018','150.75'),
-('4',DEFAULT,'03-09-2018','700.60');
+VALUES('1','01-09-2018','150.75'),
+('5','03-09-2018','150.75'),
+('4','03-09-2018','700.60');
 
 --product information
 CREATE TABLE Products(
-product_id      SERIAL PRIMARY KEY,
+id      SERIAL PRIMARY KEY,
 Product_Name    VARCHAR(100),
 Description     VARCHAR(300),
 Price           DECIMAL
@@ -73,26 +73,36 @@ VALUES('Harley Davidson Chopper','This replica features working kickstand, front
 
 --order information
 CREATE TABLE Orders(
-order_id            SERIAL PRIMARY KEY,
-product_id          INTEGER,
-payment_id          INTEGER,
-employee_id         INTEGER,
+id            SERIAL PRIMARY KEY,
+Products_id          INTEGER,
+Payments_id          INTEGER,
+Employees_id         INTEGER,
 date_required       DATE,
 date_shipped        DATE,
 Status              VARCHAR(20),
-FOREIGN KEY (product_id) REFERENCES Products (product_id),
-FOREIGN KEY (payment_id) REFERENCES Payments (payment_id),
-FOREIGN KEY (employee_id) REFERENCES Employees (employee_id)
+FOREIGN KEY (Products_id) REFERENCES Products (id),
+FOREIGN KEY (Payments_id) REFERENCES Payments (id),
+FOREIGN KEY (Employees_id) REFERENCES Employees (id)
 );
 
 
 
 INSERT INTO Orders(
-product_id,payment_id,employee_id,date_required,date_shipped,Status
+Products_id,Payments_id,Employees_id,date_required,date_shipped,Status
 )
 
 VALUES('1','1','2','05-09-2018',DEFAULT,'Not shipped'),
 ('1','2','2','04-09-2018','03-09-2018','Shipped'),
 ('3','3','3','06-09-2018',DEFAULT,'Not shipped');
 
-
+SELECT 
+	tc.PRIMARY KEY, tc.cutomers, kcu.column_name,
+	ccu.table_name AS foreign_table_name,
+	ccu.column_name AS foreign_table_name
+FROM 
+	information_schema.table_constraints AS tc
+	JOIN information_schema.key_column_usage AS kcu
+	ON tc.constraint_name = kcu.constraint_name
+	JOIN information_schema.constraint_column_usage AS ccu
+	ON ccu.constraint_name = tc.constraint_name
+WHERE constraint_type = 'FOREIGN KEY'

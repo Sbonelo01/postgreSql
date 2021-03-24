@@ -1,3 +1,4 @@
+
 --1.Select all records from customer
 SELECT * FROM Customers;
 
@@ -5,13 +6,13 @@ SELECT * FROM Customers;
 SELECT first_name FROM Customers;
 
 --3.Show the name of the Customer whose CustomerID is 1.
-SELECT first_name FROM Customers WHERE customer_id=1;
+SELECT first_name FROM Customers WHERE Customers.id=1;
 
 --4.Update the record for CustomerID = 1 on the Customer table so that the name is “Lerato Mabitso”.
-UPDATE Customers SET first_name='Lerato Mabitso' WHERE customer_id=1;
+UPDATE Customers SET first_name='Lerato Mabitso' WHERE Customers.id=1;
 
 --5.Delete the record from the Customers table for customer 2 (CustomerID = 2).
-DELETE FROM Customers WHERE customer_id=2;
+DELETE FROM Customers WHERE Customers.id=2;
 
 --6.Select all unique statuses from the Orders table and get a count of the number of orders for each unique status.
 SELECT COUNT (DISTINCT Status) FROM Orders;
@@ -51,7 +52,7 @@ SELECT AVG(Price) from Products;
 
 --16.Using INNER JOIN create a query that selects all Payments with Customer information.
 SELECT
-   customers.customer_id,
+   customers.id,
    customers.first_name,
    customers.Last_Name,
    customers.Email,
@@ -63,7 +64,7 @@ SELECT
    customers.Address
 FROM
    Customers
-INNER JOIN Payments ON customers.customer_id  =  payments.customer_id;
+INNER JOIN Payments ON Customers.id  =  payments.id;
 
 --17.Select all products that have turnable front wheels.
 SELECT * FROM Products 
