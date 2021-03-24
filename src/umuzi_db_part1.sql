@@ -94,15 +94,3 @@ Products_id,Payments_id,Employees_id,date_required,date_shipped,Status
 VALUES('1','1','2','05-09-2018',DEFAULT,'Not shipped'),
 ('1','2','2','04-09-2018','03-09-2018','Shipped'),
 ('3','3','3','06-09-2018',DEFAULT,'Not shipped');
-
-SELECT 
-	tc.PRIMARY KEY, tc.cutomers, kcu.column_name,
-	ccu.table_name AS foreign_table_name,
-	ccu.column_name AS foreign_table_name
-FROM 
-	information_schema.table_constraints AS tc
-	JOIN information_schema.key_column_usage AS kcu
-	ON tc.constraint_name = kcu.constraint_name
-	JOIN information_schema.constraint_column_usage AS ccu
-	ON ccu.constraint_name = tc.constraint_name
-WHERE constraint_type = 'FOREIGN KEY'
