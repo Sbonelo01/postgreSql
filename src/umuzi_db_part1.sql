@@ -1,5 +1,5 @@
 --create a database called umuzi
-CREATE DATABASE Umuziiii;
+CREATE DATABASE Umuzi;
 
 --create a tables
 CREATE TABLE Customers(
