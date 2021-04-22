@@ -12,7 +12,7 @@ Country			VARCHAR(50)
 
 );
 
---emplyees table
+-- emplyees table
 CREATE TABLE Employees(
 employee_id SERIAL  PRIMARY KEY,
 first_name      VARCHAR(50),
@@ -21,7 +21,7 @@ email           VARCHAR(100),
 job_title       VARCHAR(20)
 );
 
---payments table
+-- payments table
 CREATE TABLE Payments(
 customer_id 	INTEGER,
 payment_id      SERIAL PRIMARY KEY,
@@ -30,7 +30,7 @@ amount         	DECIMAL,
 FOREIGN KEY (customer_id) REFERENCES Customers (customer_id)
 );
 
---products table
+-- products table
 CREATE TABLE Products(
 product_id      SERIAL PRIMARY KEY,
 Product_Name    VARCHAR(100),
@@ -38,7 +38,7 @@ Description     VARCHAR(300),
 Price           DECIMAL
 );
 
---orders table
+-- table
 CREATE TABLE Orders(
 order_id            SERIAL PRIMARY KEY,
 product_id          INTEGER,
