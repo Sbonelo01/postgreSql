@@ -1,4 +1,3 @@
-
 -- populate customers table
 INSERT INTO Customers(first_name,last_name,Gender,Address,Phone,email,City,Country)
 VALUES('John','Hibert','Male','284 chaucer st','084789657','john@gmail.com','Johannesburg','South Africa'),
