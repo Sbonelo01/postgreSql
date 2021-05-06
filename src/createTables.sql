@@ -1,6 +1,6 @@
 -- customer table
 CREATE TABLE Customers(
-Customer_id 	    SERIAL  PRIMARY KEY,
+Customer_id 	        SERIAL  PRIMARY KEY,
 First_name		VARCHAR(50),
 Last_name		VARCHAR(50),
 Gender			VARCHAR,
