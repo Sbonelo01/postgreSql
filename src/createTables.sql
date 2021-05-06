@@ -13,7 +13,7 @@ Country			VARCHAR(50)
 
 -- emplyees table
 CREATE TABLE Employees(
-Employee_id SERIAL  PRIMARY KEY,
+Employee_id     SERIAL  PRIMARY KEY,
 First_name      VARCHAR(50),
 Last_name       VARCHAR(50),
 Email           VARCHAR(100),
