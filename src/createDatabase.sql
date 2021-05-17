@@ -1,2 +1,2 @@
 --create a database called umuzi
-CREATE DATABASE Um;
+CREATE DATABASE Umuzi;
