@@ -53,7 +53,7 @@ SELECT AVG(price) from Products;
 SELECT
    Customers.customer_id,
    Customers.first_name,
-   Customers.last_Name,
+   Customers.last_name,
    Customers.email,
    Payments.amount,
    Payments.payment_Date,
