@@ -1,2 +1,1 @@
---create a database called umuzi
-CREATE DATABASE Umuzi;
+CREATE DATABASE Shop;
